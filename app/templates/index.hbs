@@ -1,0 +1,20 @@
+{{#mapbox-gl
+    id='map'
+    initOptions=(hash style='mapbox://styles/mapbox/dark-v9'
+                      zoom=14
+                      center=center
+                      hash=true)
+    mapLoaded=(action 'handleMapLoaded')
+    as |map|}}
+    {{#map.source options=nycSubwayRoutesSource as |source|}}
+      {{source.layer layer=nycSubwayRoutesLayer}}
+    {{/map.source}}
+    {{#map.source options=nycSubwayStopsSource as |source|}}
+      {{source.layer layer=nycSubwayStopsLayer}}
+      {{source.layer layer=nycSubwayStopsLabelsLayer}}
+    {{/map.source}}
+{{/mapbox-gl}}
+
+<div id="go" onclick={{action 'chooseStation'}}>
+  Go
+</div>
