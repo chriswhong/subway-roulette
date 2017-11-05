@@ -84,7 +84,7 @@ export default Ember.Controller.extend({
     minzoom: 13,
     type: 'symbol',
     layout: {
-      'text-field': '{name}',
+      'text-field': '{name} Station',
       'symbol-placement': 'point',
       'symbol-spacing': 250,
       'symbol-avoid-edges': false,
@@ -92,7 +92,8 @@ export default Ember.Controller.extend({
       'text-anchor': 'center',
     },
     paint: {
-      'text-halo-color': 'rgba(255, 255, 255, 1)',
+      'text-color': '#FFF',
+      'text-halo-color': '#212121',
       'text-halo-width': 1,
       'text-translate': [1, 20],
       'text-opacity': {
@@ -119,6 +120,7 @@ export default Ember.Controller.extend({
     },
 
     handleMapLoaded(map) {
+      window.map = map;
       this.set('map', map);
     },
   },
