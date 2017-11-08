@@ -6,7 +6,9 @@ const Router = Ember.Router.extend({
   rootURL: config.rootURL,
 });
 
-// Router.map(function() {
-// });
+Router.map(function() {
+  this.route('station', { path: '/station/:stationId' });
+  return null;
+});
 
 export default Router;
