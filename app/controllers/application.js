@@ -183,9 +183,5 @@ export default Ember.Controller.extend({
         mapservice.set('highlightCoordinates', [0, 0]);
       }
     },
-
-    handleSliderChange(selectedRange) {
-      this.set('selectedRange', selectedRange);
-    },
   },
 });

@@ -3,16 +3,17 @@ Starting Station
 
 Time you're willing to travel:
 {{range-slider
-  start=sliderStart
- min=0
- max=100
- connect=true
- tooltips=true
- step=1
- on-change="handleSliderChange"
+  start=selectedRange
+  min=0
+  max=120
+  tooltips=true
+  step=15
+  behaviour="drag"
+  on-change="handleSliderChange"
  }}
 
- <div id="go" >
+ <div id="go" onClick={{action 'findStation'}}>
    Find me a station!
  </div>
+ {{log selectedRange}}
 {{outlet}}
