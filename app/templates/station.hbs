@@ -1,1 +1,18 @@
+Starting Station
+<h3>{{model.properties.name}}</h3>
+
+Time you're willing to travel:
+{{range-slider
+  start=sliderStart
+ min=0
+ max=100
+ connect=true
+ tooltips=true
+ step=1
+ on-change="handleSliderChange"
+ }}
+
+ <div id="go" >
+   Find me a station!
+ </div>
 {{outlet}}

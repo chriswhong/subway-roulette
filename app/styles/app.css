@@ -1,3 +1,7 @@
+html {
+  font-family: sans-serif;
+}
+
 #map {
   top: 0;
   right: 0;
@@ -7,12 +11,22 @@
 }
 
 #go {
-  position: absolute;
   background: #fff;
   padding: 10px 20px;
-  font-family: sans-serif;
+  margin-top: 50px;
 }
 
 #go:hover {
   cursor: pointer;
+}
+
+#control-pane {
+  width: 300px;
+  background: gray;
+  position: absolute;
+  padding: 10px;
+}
+
+.noUi-horizontal .noUi-tooltip {
+  bottom: -130%;
 }

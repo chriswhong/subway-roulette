@@ -5,7 +5,7 @@ export default Ember.Service.extend({
 
   fitBoundsOptions: {
     padding: 40,
-    maxZoom: 15,
+    maxZoom: 16,
   },
 
   bounds: [],

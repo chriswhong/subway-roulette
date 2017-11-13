@@ -162,5 +162,30 @@ export default Ember.Controller.extend({
       window.map = map;
       this.set('map', map);
     },
+
+    handleClick(e) {
+      const map = this.get('map');
+      const feature = map.queryRenderedFeatures(e.point, { layers: ['subway_stations'] })[0];
+      if (feature) {
+        const stationId = feature.properties.cartodb_id;
+        this.transitionToRoute('station', stationId);
+      }
+    },
+
+    handleMousemove(e) {
+      // queryRenderedFeatures() for the subway stations layer
+      const map = this.get('map');
+      const mapservice = this.get('mapservice');
+      const feature = map.queryRenderedFeatures(e.point, { layers: ['subway_stations'] })[0];
+      if (feature) {
+        mapservice.set('highlightCoordinates', feature.geometry.coordinates);
+      } else {
+        mapservice.set('highlightCoordinates', [0, 0]);
+      }
+    },
+
+    handleSliderChange(selectedRange) {
+      this.set('selectedRange', selectedRange);
+    },
   },
 });
