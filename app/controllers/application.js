@@ -142,20 +142,10 @@ export default Ember.Controller.extend({
   },
 
   actions: {
-    chooseStation() {
-      const stations = this.get('model').features;
-      const selected = stations[Math.floor(Math.random() * stations.length)];
-      const stationId = selected.properties.cartodb_id;
-
-      this.transitionToRoute('station', stationId);
-
-      // this.set('selected', selected);
-      //
-      // const map = this.get('map');
-      // map.fitBounds(bbox(selected), {
-      //   padding: 40,
-      //   maxZoom: 15,
-      // });
+    toggleLabels() {
+      const currentOpacity = this.get('map').getLayer('subway-stops-labels').paint['text-opacity'];
+      const newOpacity = currentOpacity === 0 ? 1 : 0;
+      this.get('map').setPaintProperty('subway-stops-labels', 'text-opacity', newOpacity);
     },
 
     handleMapLoaded(map) {

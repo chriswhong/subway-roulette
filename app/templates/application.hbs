@@ -8,7 +8,7 @@
       mapLoaded=(action 'handleMapLoaded')
       as |map|}}
       {{#map.source options=nycSubwayRoutesSource as |source|}}
-        {{source.layer layer=nycSubwayRoutesLayer}}
+        {{source.layer layer=nycSubwayRoutesLayer before="waterway-label"}}
       {{/map.source}}
 
       {{#map.source options=nycSubwayStopsSource as |source|}}
@@ -25,8 +25,8 @@
       {{/if}}
   {{/mapbox-gl}}
 
-  <div id="go" onclick={{action 'chooseStation'}}>
-    Go
+  <div id="go" onclick={{action 'toggleLabels'}}>
+    Toggle Station Labels
   </div>
   {{outlet}}
 </div>
